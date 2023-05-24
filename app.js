@@ -16,7 +16,7 @@ const products = [
 const app = express()
 
 app.get('/', (request, response) => {
-    response.send('Hola mundo')
+    response.send('Desafio 3')
 })
 
 app.get('/products', (request, response) => {
@@ -24,7 +24,7 @@ app.get('/products', (request, response) => {
     if (!limit) {
         response.send(products)
     } else if (limit <= 0 || limit > products.length) {
-        return response.send({ error: 'El user no existe' })
+        return response.send({ error: 'El limite no es valido' })
     }else {
         const limitProducts = products.slice(0, limit);
         response.send(limitProducts)
@@ -38,4 +38,4 @@ app.get('/products/:id', (request, response) => {
     response.send(product)
 })
 
-app.listen(8080, () => console.log('server up'))
+app.listen(8080, () => console.log('Server up'))
